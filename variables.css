@@ -2,7 +2,7 @@
   /** colors */
   --color-name: custom;
   --color-bg-shade: #131316;
-  --color-bg-base: #18181B;
+  --color-bg-base: #1E1E2D;
   --color-bg-surface: #1D1D20;
   --color-bg-highlight: #222226;
   --color-fg-shade: #969696;
@@ -40,6 +40,6 @@
   --space-largest: 3rem;
 
   /** others */
-  --picture-size: 300px;
-  --group-count: 4;
+  --picture-size: 350px;
+  --group-count: 3;
 }

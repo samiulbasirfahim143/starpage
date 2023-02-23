@@ -4,6 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: Operator Mono;
 }
 
 input,
@@ -83,8 +84,8 @@ body {
 .surface > main {
   padding: var(--space-large);
   flex: 1;
-  max-width: calc(100% - var(--picture-size));
-
+  min-height: 350px;
+  /* max-width: calc(100% - var(--picture-size)); */
   display: flex;
   flex-direction: column;
 }
@@ -164,7 +165,7 @@ body {
 #bookmarks {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-top: auto;
 }
 
@@ -221,4 +222,15 @@ a#yags-link:hover,
 a#yags-link:focus-visible {
   color: var(--color-fg-base);
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 1024px) {
+  .surface > img {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+  .surface > main {
+    width: 100%;
+  }
 }

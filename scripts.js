@@ -8,7 +8,12 @@
 const searchInput = document.querySelector("#searchbar > input")
 const searchButton = document.querySelector("#searchbar > button")
 
-const lookup = {"/":"/","deepl":"https://deepl.com/","reddit":"https://reddit.com/","maps":"https://maps.google.com/"}
+const lookup = {
+  "/": "/",
+  deepl: "https://deepl.com/",
+  reddit: "https://reddit.com/",
+  maps: "https://maps.google.com/",
+}
 const engine = "google"
 const engineUrls = {
   deepl: "https://www.deepl.com/translator#-/-/",
@@ -19,7 +24,7 @@ const engineUrls = {
   youtube: "https://www.youtube.com/results?q=",
 }
 
-const isWebUrl = value => {
+const isWebUrl = (value) => {
   try {
     const url = new URL(value)
     return url.protocol === "http:" || url.protocol === "https:"
@@ -28,7 +33,7 @@ const isWebUrl = value => {
   }
 }
 
-const getTargetUrl = value => {
+const getTargetUrl = (value) => {
   if (isWebUrl(value)) return value
   if (lookup[value]) return lookup[value]
   return engineUrls[engine] + value
@@ -40,14 +45,108 @@ const search = () => {
   window.open(targetUrl, "_self")
 }
 
-searchInput.onkeyup = event => event.key === "Enter" && search()
+searchInput.onkeyup = (event) => event.key === "Enter" && search()
 searchButton.onclick = search
 
 /**
  * inject bookmarks into html
  */
 
-const bookmarks = [{"id":"ftbk0IxjawxXR3iC","label":"reddit","bookmarks":[{"id":"EQM1zjQ1ngtuNIof","label":"r/startpages","url":"https://www.reddit.com/r/startpages/"},{"id":"sRUHCibgQuLQkUh7","label":"r/typescript","url":"https://www.reddit.com/r/typescript/"},{"id":"WJbp9J0jkMmPs5TM","label":"r/reactjs","url":"https://www.reddit.com/r/reactjs/"}]},{"id":"DnMkJLYQ6601e3PI","label":"design tools","bookmarks":[{"id":"LNhmfaBkQIPigfzn","label":"pixlrx","url":"https://pixlr.com/x/"},{"id":"9TbAcDB8y7z2dU6J","label":"image enlarger","url":"https://bigjpg.com/en"},{"id":"Wn4TgODxTn1Gxos3","label":"haikei","url":"https://app.haikei.app/"},{"id":"HYApkf72wgeXfaAK","label":"css gradients","url":"https://larsenwork.com/easing-gradients/"}]},{"id":"yRy688X7AoaFb4MS","label":"worth reading","bookmarks":[{"id":"U9ci5iz3Ad1CyJLk","label":"happy hues","url":"https://www.happyhues.co/"},{"id":"qZUh70EBUTM6O9Eu","label":"styled-components","url":"https://www.joshwcomeau.com/react/demystifying-styled-components/"},{"id":"FCTW4qI5JPxAvG4Z","label":"react docs","url":"https://reactjs.org/docs/getting-started.html"}]},{"id":"wWpxVRnO6CLiunq9","label":"sources","bookmarks":[{"id":"YsOPETScWzqYk7IX","label":"icons","url":"https://feathericons.com/"},{"id":"HQZT5Vh0GtmlD4NP","label":"gif","url":"https://designyoutrust.com/2019/05/the-chill-and-retro-motion-pixel-art-of-motocross-saito/"},{"id":"qJnwTUDmqm7rpz87","label":"@startpage","url":"https://prettycoffee.github.io/startpage"},{"id":"LWoYo5voGUmhvneg","label":"author","url":"https://prettycoffee.github.io/"}]}]
+const bookmarks = [
+  {
+    id: "DnMkJLYQ6601e3PI",
+    label: "social media",
+    bookmarks: [
+      {
+        id: "LNhmfaBkQIPigfzn",
+        label: "facebook",
+        url: "https://www.facebook.com/",
+      },
+      {
+        id: "9TbAcDB8y7z2dU6J",
+        label: "discord",
+        url: "https://discord.com/app",
+      },
+      {
+        id: "EQM1zjQ1ngtuNIof",
+        label: "r/unixporn",
+        url: "https://www.reddit.com/r/unixporn/",
+      },
+      {
+        id: "EQM1zjQ1ngtuNIof",
+        label: "r/ProgrammerHumor",
+        url: "https://www.reddit.com/r/ProgrammerHumor/",
+      },
+      {
+        id: "EQM1zjQ1ngtuNIof",
+        label: "r/linuxmemes",
+        url: "https://www.reddit.com/r/linuxmemes/",
+      },
+    ],
+  },
+  {
+    id: "wWpxVRnO6CLiunq9",
+    label: "programming",
+    bookmarks: [
+      {
+        id: "YsOPETScWzqYk7IX",
+        label: "github",
+        url: "https://github.com/samiulbasirfahim?tab=repository",
+      },
+      {
+        id: "HQZT5Vh0GtmlD4NP",
+        label: "programming-hero",
+        url: "https://web.programming-hero.com/dashboard",
+      },
+      {
+        id: "LWoYo5voGUmhvneg",
+        label: "stackoverflow",
+        url: "https://stackoverflow.com/",
+      },
+      {
+        id: "9q3vfhm7l33rus21toc8fndupq76itje",
+        label: "nixos-search",
+        url: "https://search.nixos.org/packages",
+      },
+      {
+        id: "9q3vfhm7l33rus21toc8fndupq76itje",
+        label: "w3-school",
+        url: "https://www.w3schools.com/",
+      },
+    ],
+  },
+  {
+    id: "yRy688X7AoaFb4MS",
+    label: "google",
+    bookmarks: [
+      {
+        id: "U9ci5iz3Ad1CyJLk",
+        label: "youtube",
+        url: "https://www.youtube.com/",
+      },
+      {
+        id: "qZUh70EBUTM6O9Eu",
+        label: "gmail",
+        url: "https://mail.google.com/mail/u/0/#inbox",
+      },
+      {
+        id: "qZUh70EBUTM6O9Eu",
+        label: "drive",
+        url: "https://drive.google.com/drive/u/0/my-drive",
+      },
+      {
+        id: "qZUh70EBUTM6O9Eu",
+        label: "map",
+        url: "https://www.google.com/maps",
+      },
+      {
+        id: "qZUh70EBUTM6O9Eu",
+        label: "translate",
+        url: "https://translate.google.com",
+      },
+    ],
+  },
+]
 
 const createGroupContainer = () => {
   const container = document.createElement("div")
@@ -55,7 +154,7 @@ const createGroupContainer = () => {
   return container
 }
 
-const createGroupTitle = title => {
+const createGroupTitle = (title) => {
   const h2 = document.createElement("h2")
   h2.innerHTML = title
   return h2
@@ -70,9 +169,9 @@ const createBookmark = ({ label, url }) => {
   return li
 }
 
-const createBookmarkList = bookmarks => {
+const createBookmarkList = (bookmarks) => {
   const ul = document.createElement("ul")
-  bookmarks.map(createBookmark).forEach(li => ul.append(li))
+  bookmarks.map(createBookmark).forEach((li) => ul.append(li))
   return ul
 }
 
@@ -88,7 +187,9 @@ const createGroup = ({ label, bookmarks }) => {
 const injectBookmarks = () => {
   const bookmarksContainer = document.getElementById("bookmarks")
   bookmarksContainer.append()
-  bookmarks.map(createGroup).forEach(group => bookmarksContainer.append(group))
+  bookmarks
+    .map(createGroup)
+    .forEach((group) => bookmarksContainer.append(group))
 }
 
 injectBookmarks()
