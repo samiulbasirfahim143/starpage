@@ -17,7 +17,7 @@ button,
 textarea,
 select {
   font: inherit;
-  color: currentColor;
+  color: Q;
 }
 
 a {
