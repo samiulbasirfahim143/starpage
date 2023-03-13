@@ -1,15 +1,11 @@
 @import url("./variables.css");
 
-@font-face {
-  font-family: operator-mono;
-  src: url(./OperatorMono-Book.otf);
-}
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: operator-mono;
+  font-family: JetbrainsMono nerd font;
 }
 
 input,

@@ -14,7 +14,7 @@ const lookup = {
   reddit: "https://reddit.com/",
   maps: "https://maps.google.com/",
 }
-const engine = "google"
+const engine = "duckduckgo"
 const engineUrls = {
   deepl: "https://www.deepl.com/translator#-/-/",
   duckduckgo: "https://duckduckgo.com/?q=",
